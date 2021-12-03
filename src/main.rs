@@ -1,14 +1,30 @@
-use configuration::*;
+extern crate clap;
+use clap::{App, Arg, SubCommand};
 use pwndar::*;
 use std::env;
 
 fn main() {
-    let args: Vec<String> = env::args().collect();
-    let email = args.get(1).expect("Please supply an email");
+    let banner = include_str!("banner.txt");
 
-    if !verify_email(email) {
-        panic!("INVALID EMAIL");
-    }
+    let matches = App::new("Pwndar")
+        .version("0.1")
+        .author("Michael Forret <michael.forret@quorumcyber.com>")
+        .arg(
+            Arg::with_name("EMAIL")
+                .help("Sets the email to parse")
+                .index(1)
+                .required(true),
+        )
+        .arg(
+            Arg::with_name("verbose")
+                .short("v")
+                .long("verbose")
+                .help("Display verbose output"),
+        )
+        .before_help(banner)
+        .get_matches();
 
-    run(email);
+    let email = matches.value_of("EMAIL").expect("Please supply an email");
+    let verbose = matches.is_present("verbose");
+    run(email, verbose);
 }

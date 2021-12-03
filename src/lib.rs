@@ -12,9 +12,11 @@ pub fn verify_email(email: &str) -> bool {
     email_regex.is_match(email)
 }
 
-pub fn run(email: &str) {
+pub fn run(email: &str, verbose: bool) {
     let keys = configuration::get_keys().unwrap();
     let hibp_key = keys.get("hibp").unwrap();
-    let builder = Hibp::Builder::new(hibp_key.to_owned());
-    builder.get_breaches(email);
+    let mut builder = Hibp::Builder::new(hibp_key.to_owned());
+    builder.get_breaches(email, verbose);
+    builder.get_pastes(email, verbose);
+    println!("{}", builder);
 }
