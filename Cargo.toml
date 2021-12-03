@@ -2,6 +2,12 @@
 name = "pwndar"
 version = "0.1.0"
 edition = "2018"
+license = "MIT"
+description = "CLI tool that checks the security of an email"
+homepage = "https://github.com/michaelf97/pwndar"
+documentation = "https://github.com/michaelf97/pwndar/"
+respository = "https://github.com/michaelf97/pwndar/"
+readme = "https://github.com/michaelf97/pwndar/"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
