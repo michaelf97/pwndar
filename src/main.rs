@@ -10,7 +10,5 @@ fn main() {
         panic!("INVALID EMAIL");
     }
 
-    get_keys().unwrap();
-
-    //run(email);
+    run(email);
 }

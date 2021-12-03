@@ -1,4 +1,4 @@
-use hibp::HibpRequest;
+use hibp::Hibp;
 use regex::Regex;
 
 pub mod configuration;
@@ -13,5 +13,8 @@ pub fn verify_email(email: &str) -> bool {
 }
 
 pub fn run(email: &str) {
-    HibpRequest::new();
+    let keys = configuration::get_keys().unwrap();
+    let hibp_key = keys.get("hibp").unwrap();
+    let builder = Hibp::Builder::new(hibp_key.to_owned());
+    builder.get_breaches(email);
 }
