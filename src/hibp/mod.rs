@@ -4,7 +4,6 @@ pub mod Hibp {
     use colored::Colorize;
     use std::error::Error as E;
     use std::fmt;
-    use std::io;
     use std::time::Duration;
     use ureq::OrAnyStatus;
 
@@ -158,12 +157,6 @@ pub mod Hibp {
     impl fmt::Display for Error {
         fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
             write!(f, "{}", self.details)
-        }
-    }
-
-    impl From<io::Error> for Error {
-        fn from(error: io::Error) -> Error {
-            Error::new(String::from("IO ERROR"))
         }
     }
 

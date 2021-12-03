@@ -1,7 +1,6 @@
 extern crate clap;
-use clap::{App, Arg, SubCommand};
+use clap::{App, Arg};
 use pwndar::*;
-use std::env;
 
 fn main() {
     let banner = include_str!("banner.txt");
