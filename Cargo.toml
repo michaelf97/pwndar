@@ -7,7 +7,7 @@ description = "CLI tool that checks the security of an email"
 homepage = "https://github.com/michaelf97/pwndar"
 documentation = "https://github.com/michaelf97/pwndar/"
 respository = "https://github.com/michaelf97/pwndar/"
-readme = "https://github.com/michaelf97/pwndar/"
+readme = "README.md"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
